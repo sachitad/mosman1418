@@ -366,7 +366,7 @@ class AddSourceForm(ModelForm, DateSelectMixin):
             title='Find War Dead',
             publisher=publisher,
             source_type=website_type,
-            url='http://www.cwgc.org/find-war-dead.aspx',
+            url='https://www.cwgc.org/find/find-war-dead',
             defaults={'added_by': system_user}
         )
         cleaned_data['details'] = details
