@@ -210,9 +210,13 @@ class LifeEvent(Event):
     memorials = models.ManyToManyField('memorials.Memorial', blank=True)
 
     def __str__(self):
-        return '{} {} {}'.format(
+        if self.label:
+            label_detail = '{}{}'.format(self.label[0].lower(), self.label[1:])
+        else:
+            label_detail = self.label
+        return '{} {}'.format(
             self.person,
-            '{}{}'.format(self.label[0].lower(), self.label[1:]),
+            label_detail,
             '({})'.format(self.date_summary()) if self.date_summary() else ''
         )
 
